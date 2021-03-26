@@ -2,6 +2,7 @@ const express = require('express')
 const server = express()
 const mongoose = require('mongoose')
 const users = require('./routes/users.js')
+const admins = require('./routes/admins.js')
 const bodyParser = require('body-parser')
 const products = require('./routes/products.js')
 const expressFormData = require('express-form-data')
@@ -27,8 +28,8 @@ const passportJwt = (passport) => {
             passportJwtOptions, 
             (jwtPayload, done) => {
 
-                // Extract and find the user by their id (contained jwt)
-                UsersModel.findOne({ _id: jwtPayload.id })
+                // Extract and find the Admin by their id (contained jwt)
+                AdminsModel.findOne({ _id: jwtPayload.id })
                 .then(
                     // If the document was found
                     (document) => {
@@ -61,7 +62,7 @@ cloudinary.config(
 
 );
 
-////////to create a user login\\\\\\\\\ 
+////////to create a Admin login\\\\\\\\\ 
 //1. create server and connect to mangodb using mangoose
 const connectionConfig= {useNewUrlParser:true, useUnifiedTopology:true};
 mongoose.connect(process.env.CONNECTION_STRING, connectionConfig)
@@ -99,9 +100,13 @@ server.use(expressFormData.parse());
 server.use(
     '/user', users
 )
+
+server.use(
+    '/admin', admins
+)
 // To user products Route
 server.use(
-    '/product', passport.authenticate('jwt', {session:false}),
+    '/product', 
     products
 )
 const port = process.env.PORT || 3002;

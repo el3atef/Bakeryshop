@@ -134,6 +134,7 @@ const RegisterScreen = () => {
                             <input onChange={attachFile} type="file" class="custom-file-input" id="avatar" />
                             <label class="custom-file-label" for="avatar">Choose file</label>
                         </div>
+                        <br /> <br />
 
 
                         {

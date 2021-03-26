@@ -15,6 +15,7 @@ import AppContext from './AppContext'
           [{'path':'/', 'label':'Home'},
           {'path':'/about', 'label':'About'},
           {'path':'/menu', 'label':'Menu'}, 
+          {'path':'/newproduct', 'label':'New Product'}, 
           {'path': '/logout', 'label':'Logout'}]
       }
       else{
@@ -33,6 +34,7 @@ import AppContext from './AppContext'
           [{'path':'/', 'label':'Home'},
           {'path':'/about', 'label':'About'},
           {'path':'/menu', 'label':'Menu'}, 
+          {'path':'/newproduct', 'label':'New Product'}, 
           {'path': '/logout', 'label':'Logout'}]
       }
       else{

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const opts = { toJSON: { virtuals: true } };
 const ProductsSchema = new mongoose.Schema(
     {
         productname:{
@@ -15,8 +16,12 @@ const ProductsSchema = new mongoose.Schema(
         },
         imageurl:{
             type: String
+        },
+        createdDate: {
+            type: Date,
+            default: Date.now
         }
     }
-)
+, opts)
 const ProductsModel = new mongoose.model('products', ProductsSchema)
 module.exports = ProductsModel

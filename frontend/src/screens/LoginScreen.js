@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import AppContext from '../AppContext'
-
+import history from '../history';
 
 
 const LoginScreen = () =>{
@@ -57,6 +57,8 @@ const LoginScreen = () =>{
                 if(data.avatar){
                     localStorage.setItem('avatar', data.avatar)
                 }
+                 history.push('/');
+                window.location.reload(false);
                 if(data.jsonwebtoken)
                 {
                     

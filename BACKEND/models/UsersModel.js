@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const opts = { toJSON: { virtuals: true } };
 const UsersSchema = new mongoose.Schema(
     {
         username:{type: String,required: true},
@@ -22,6 +23,6 @@ const UsersSchema = new mongoose.Schema(
             default: Date.now
         }
     }
-)
+, opts)
 const UsersModel = new mongoose.model('users', UsersSchema)
 module.exports = UsersModel

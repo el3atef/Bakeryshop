@@ -175,5 +175,23 @@ router.post(
             .catch((err) => res.send("the user is not found"))
     }
 )
+router.get(
+    '/list',                 
+    (req, res) => {
 
+        UsersModel
+        .find()
+        .then(
+            (dbDocuments) => {
+                res.send(dbDocuments)
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error)
+            }
+        )
+
+    }
+);
 module.exports = router
